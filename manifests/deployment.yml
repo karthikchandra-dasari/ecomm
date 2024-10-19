@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: ngnixapp 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ngnixapp
+  template:
+    metadata:
+      labels:
+        app: ngnixapp 
+    spec:
+      containers:
+        - name: ngnixapp 
+          image: ngnixappacr.azurecr.io/ngnixapp
+          ports:
+          - containerPort: 80
